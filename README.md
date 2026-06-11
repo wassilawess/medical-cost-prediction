@@ -108,8 +108,9 @@ streamlit run app/app.py
 http://localhost:8501
 
 
-## Project Structure
+## 📂 Project Structure
 
+```text
 medical-cost-prediction/
 │
 ├── app/
@@ -125,11 +126,11 @@ medical-cost-prediction/
 │   ├── 01_eda.ipynb
 │   └── 02_model_training.ipynb
 │
-├── notes/
-│
 ├── assets/
-│   ├── app_input.png
-│   └── app_output.png
+│   ├── input.png
+│   └── output.png
+│
+├── notes/
 │
 ├── requirements.txt
 └── README.md
