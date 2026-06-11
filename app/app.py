@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 
 # load model
-model = joblib.load("/ML-IA/medical-cost-prediction/models/medical_cost_model.pkl")
+model = joblib.load("models/medical_cost_model.pkl")
 
 st.title("Medical Cost Prediction App")
 
@@ -37,4 +37,6 @@ input_data = np.array([[
 
 prediction = model.predict(input_data)
 
-st.success(f"Predicted Insurence Cost : ${prediction[0]:,.2f}")
+if st.button("Predict Insurance Cost"):
+    prediction = model.predict(input_data)
+    st.success(f"Predicted Insurence Cost : ${prediction[0]:,.2f}")
