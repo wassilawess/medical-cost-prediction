@@ -134,6 +134,7 @@ medical-cost-prediction/
 │
 ├── requirements.txt
 └── README.md
+```
 
 ## App Demo
 
