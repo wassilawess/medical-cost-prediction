@@ -1,84 +1,115 @@
-# Medical Cost Prediction
+# Medical Cost Prediction using Machine Learning
 
 ## Project Overview
 
-This project predicts individual medical insurance charges based on demographic and health-related information. The goal is to build an end-to-end machine learning solution that can estimate insurance costs using features such as age, BMI, number of children, smoking status, gender, and geographic region.
+This project is an end-to-end Machine Learning application that predicts individual medical insurance charges based on demographic and health-related attributes. The system uses supervised regression models to estimate insurance costs and is deployed as an interactive web application using Streamlit.
+
+The goal is to demonstrate a full ML pipeline: data analysis, preprocessing, model training, evaluation, and deployment.
+
+---
+
+## Problem Statement
+
+Medical insurance costs vary significantly depending on factors such as age, BMI, smoking status, and lifestyle.  
+The objective is to build a regression model that can accurately estimate insurance charges based on user input.
+
+---
 
 ## Dataset
 
-The project uses the insurance.csv dataset, which contains information about individuals and their corresponding medical insurance charges.
+The dataset used is 'insurance.csv', which contains demographic and health-related information.
 
-### Features
+### Features:
+- Age
+- Sex
+- BMI (Body Mass Index)
+- Number of Children
+- Smoker Status
+- Region
 
-* Age
-* Sex
-* BMI (Body Mass Index)
-* Number of Children
-* Smoker Status
-* Region
+### Target Variable:
+- Insurance Charges
 
-### Target Variable
-
-* Insurance Charges
+---
 
 ## Project Workflow
 
 1. Data Loading and Exploration
 2. Exploratory Data Analysis (EDA)
-3. Data Preprocessing and Feature Engineering
+   - Distribution analysis
+   - Relationship between features and charges
+3. Data Preprocessing
+   - Encoding categorical variables
+   - Feature engineering
 4. Model Training
+   - Linear Regression (baseline model)
+   - Random Forest Regressor
 5. Model Evaluation
+   - MAE, RMSE, R² Score
 6. Model Comparison
-7. Model Deployment using Streamlit
+   - Selection of best performing model
+7. Model Deployment
+   - Streamlit web application
+
+---
 
 ## Models Used
 
-### Linear Regression
+### Linear Regression (Baseline)
+Used as a simple baseline model for comparison.
 
-Used as a baseline model for comparison.
+### Random Forest Regressor (Final Model)
+Selected as the final model due to better performance and reduced prediction error compared to linear regression.
 
-### Random Forest Regressor
+---
 
-Selected as the final model because it achieved better performance than Linear Regression.
+## Model Performance
 
-## Results
+| Model               | MAE        | RMSE       | R² Score |
+|--------------------|------------|------------|----------|
+| Linear Regression   | ~4000      | Higher     | ~0.74    |
+| Random Forest       | ~2000      | Lower      | ~0.78    |
 
-The Random Forest Regressor achieved an R² score of approximately 0.78, meaning the model was able to explain about 78% of the variation in insurance costs.
+
+* Final model selected: **Random Forest Regressor**
+
+---
 
 ## Technologies Used
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-Learn
-* Joblib
-* Streamlit
+- Python
+- Pandas
+- NumPy
+- Scikit-Learn
+- Matplotlib
+- Seaborn
+- Joblib
+- Streamlit
 
-## Running the Application
+---
 
-1. Activate the virtual environment:
+## How to Run This Project
 
-```bash
-.\venv\Scripts\activate
-```
+1. Clone the repository
+git clone medical-cost-prediction
+cd medical-cost-prediction
 
-2. Start the Streamlit application:
+2. Create virtual environment : 
+python -m venv venv
+venv\Scripts\activate   # Windows
 
-```bash
+3. Install dependencies:
+pip install -r requirements.txt
+
+4. Run Streamlit app:
 streamlit run app/app.py
-```
 
-3. Open the browser and navigate to:
-
-```text
+5. Open in browser
 http://localhost:8501
-```
+
 
 ## Project Structure
 
-```text
 medical-cost-prediction/
 │
 ├── app/
@@ -91,10 +122,28 @@ medical-cost-prediction/
 │   └── medical_cost_model.pkl
 │
 ├── notebooks/
-│   ├── EDA.ipynb
-│   └── model_training.ipynb
+│   ├── 01_eda.ipynb
+│   └── 02_model_training.ipynb
 │
 ├── notes/
 │
+├── assets/
+│   ├── app_input.png
+│   └── app_output.png
+│
 ├── requirements.txt
 └── README.md
+
+## App Demo
+
+* Input Screen
+![Input Screen](assets/input.png)
+
+* Prediction Output
+![Prediction Output](assets/output.png)
+
+
+
+## Live Demo
+Try the app here: 
+https://medical-cost-prediction11.streamlit.app/
